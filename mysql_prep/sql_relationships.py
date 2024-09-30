@@ -10,7 +10,7 @@ Source Article URL: https://www.geeksforgeeks.org/relationships-in-sql-one-to-on
 
 import sqlite3
 
-con = sqlite3.connect("test.db")
+con = sqlite3.connect(":memory:")
 curr = con.cursor()
 
 def display_table(
@@ -229,12 +229,3 @@ curr.execute(query_8)
 
 print("\nSQL RELATIONSHIP: Self Referencing")
 display_table("employeeManagement", ["employee_id", "employee_name", "manager_id"])
-curr.execute('DROP TABLE users;')
-curr.execute('DROP TABLE users_profile;')
-curr.execute('DROP TABLE departments;')
-curr.execute('DROP TABLE employees;')
-curr.execute('DROP TABLE students;')
-curr.execute('DROP TABLE courses;')
-curr.execute('DROP TABLE student_courses;')
-curr.execute('DROP TABLE employeeManagement;')
-curr.execute("COMMIT;")
