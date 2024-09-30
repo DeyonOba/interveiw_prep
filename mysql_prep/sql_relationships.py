@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+"""
+This Module explores relationships in SQL tables, these relationships
+define how tables are connected to one another. Creating relationship among
+tables provides efficient data retrieval and maintenance.
+
+
+Source Article URL: https://www.geeksforgeeks.org/relationships-in-sql-one-to-one-one-to-many-many-to-many/
+"""
+
 import sqlite3
 
 con = sqlite3.connect("test.db")
@@ -8,6 +18,14 @@ def display_table(
     col_names: list[str],
     space: int=20
 ):
+    """
+    Displays an sqlite database table.
+    
+    Args:
+        table_name (str): The name of the database table.
+        col_names (list): A list of the defined column attribute names.
+        space (int): Whitespace used to left adjust each entry.
+    """    
     n = len(col_names)
     print()
     print(f"Table Name: {table_name}")
