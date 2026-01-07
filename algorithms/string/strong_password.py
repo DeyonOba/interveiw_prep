@@ -81,6 +81,6 @@ if __name__ == "__main__":
 
     if n != len(password):
         print("Password length does not match the number of characters entered.")
-    
-    answer = minimumNumber(n, password)
+    else:
+        answer = minimumNumber(n, password)
     print(answer)
