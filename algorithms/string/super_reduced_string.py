@@ -54,6 +54,20 @@ def superReducedString(s: str):
     return adjacent(s, True, False, 0)
 
 
+def superReducedStringLoop(s: str):
+    n = len(s)
+    idx = 0
+
+    while idx < n - 1:
+        if s[idx] == s[idx + 1]:
+            s = s[:idx] + s[idx + 2]
+            n = len(s)
+            idx = max(idx - 1, 0)
+        else:
+            idx += 1
+    return s if s else "Empty String"
+
+
 if __name__ == "__main__":
     s = input("Enter a string to reduce: ").strip()
     result = superReducedString(s)
