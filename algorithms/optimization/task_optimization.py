@@ -79,9 +79,8 @@ def even_task_distribution(array: list) -> int:
     
     array.sort(reverse=True)
 
-    mid = len(array) / 2 if len(array) % 2 == 0 else len(array) + 1 / 2
-    # Fixed: Added parentheses to ensure correct calculation of the midpoint
     mid = len(array) / 2 if len(array) % 2 == 0 else (len(array) + 1) / 2
+   
     group_1, group_2 = 0, 0
     group_1_tsk_count, group_2_tsk_count = 0, 0
 
