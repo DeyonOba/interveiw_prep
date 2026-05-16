@@ -101,8 +101,37 @@ def even_task_distribution(array: list) -> int:
     return abs(group_1 - group_2)
 
 
+def dynamic_programming(array: list[int]) -> int:
+    if type(array) is not list:
+        return 0
+    
+    if not array:
+        return 0
+    
+    total_sum = sum(array)
+    target = total_sum // 2
+
+    dp = [False] * (target + 1)
+
+    # Initialize the first element in the dp array
+    dp[0] = True
+
+    for tsk_time in array:
+        for i in range(target, tsk_time - 1, -1):
+            if dp[i - tsk_time]:
+                dp[i] = True
+
+    for i in range(target, -1, -1):
+        if dp[i]:
+            group_1_sum = i
+            break
+
+    group_2_sum = total_sum - group_1_sum
+    return abs(group_1_sum - group_2_sum)
+
+
 if __name__ == "__main__":
     array = [100, 3, 5, 6]
     print(uneven_task_distribution(array))
     print(even_task_distribution(array))
-
+    print(dynamic_programming(array))
